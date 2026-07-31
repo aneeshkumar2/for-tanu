@@ -251,7 +251,142 @@ document.getElementById("prevReason").addEventListener("click",()=>{
 });
 
 
+/* ===================================
+   OPEN WHEN CARDS
+=================================== */
 
+const openCards = document.querySelectorAll(".openCard");
+const openMessage = document.getElementById("openMessage");
+
+openCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        openMessage.style.display = "block";
+
+        openMessage.innerHTML = card.dataset.message;
+
+        card.style.background = "#ffe4ef";
+
+        setTimeout(() => {
+            card.style.background = "";
+        }, 300);
+
+    });
+
+});
+
+
+/* ===================================
+   PROGRESS INDICATOR
+=================================== */
+
+const progress = document.createElement("div");
+progress.className = "progress";
+document.body.appendChild(progress);
+
+function updateProgress(){
+
+    const activePage = document.querySelector(".page.active");
+
+    if(!activePage) return;
+
+    const pageNumber = activePage.id.replace("page","");
+
+    progress.innerHTML = `❤️ Page ${pageNumber} / 9`;
+
+}
+
+updateProgress();
+
+
+/* Update progress whenever a Next button is clicked */
+
+document.querySelectorAll(".nextBtn").forEach(btn=>{
+
+    btn.addEventListener("click",()=>{
+
+        setTimeout(updateProgress,100);
+
+    });
+
+});
+
+
+/* ===================================
+   REPLAY BUTTON
+=================================== */
+
+const replayBtn = document.getElementById("restartBtn");
+
+if(replayBtn){
+
+    replayBtn.addEventListener("click",()=>{
+
+        document.querySelectorAll(".page").forEach(page=>{
+
+            page.classList.remove("active");
+
+        });
+
+        document.getElementById("page1").classList.add("active");
+
+        heartClicks = 0;
+
+        heart.style.transform = "scale(1)";
+
+        heartMessage.innerHTML = "Tap the heart...";
+
+        if(videoBtn){
+            videoBtn.classList.add("hidden");
+        }
+
+        if(openMessage){
+            openMessage.style.display = "none";
+            openMessage.innerHTML = "";
+        }
+
+        reasonIndex = 0;
+        showReason();
+
+        updateProgress();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    });
+
+}
+
+
+/* ===================================
+   FINAL SURPRISE EFFECT
+=================================== */
+
+const finalPage = document.getElementById("page9");
+
+if(finalPage){
+
+    const observer = new MutationObserver(()=>{
+
+        if(finalPage.classList.contains("active")){
+
+            createConfetti();
+
+            createFireworks();
+
+        }
+
+    });
+
+    observer.observe(finalPage,{
+        attributes:true,
+        attributeFilter:["class"]
+    });
+
+}
 
 
 // HEART CLICK GAME
