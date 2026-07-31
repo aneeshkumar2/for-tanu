@@ -252,29 +252,7 @@ document.getElementById("prevReason").addEventListener("click",()=>{
 
 
 /* ===================================
-   OPEN WHEN CARDS
-=================================== */
-
-const openCards = document.querySelectorAll(".openCard");
-const openMessage = document.getElementById("openMessage");
-
-openCards.forEach(card => {
-
-    card.addEventListener("click", () => {
-
-        openMessage.style.display = "block";
-
-        openMessage.innerHTML = card.dataset.message;
-
-        card.style.background = "#ffe4ef";
-
-        setTimeout(() => {
-            card.style.background = "";
-        }, 300);
-
-    });
-
-});
+   
 
 
 /* ===================================
