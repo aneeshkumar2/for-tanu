@@ -7,16 +7,16 @@
 
 body {
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     background: linear-gradient(135deg, #ffd6e7, #fff0f5, #ffc2d9);
     color: #5a2345;
 }
-
 /* Pages */
 
 .page {
     display: none;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     justify-content: center;
     align-items: center;
