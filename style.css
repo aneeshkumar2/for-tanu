@@ -18,10 +18,14 @@ body {
     display: none;
     min-height: 100vh;
     width: 100%;
-    justify-content: center;
-    align-items: center;
     padding: 20px;
-    animation: fadeIn 0.8s ease;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+.page.active {
+    display: flex;
 }
 
 .page.active {
@@ -501,6 +505,9 @@ transform:translateY(0);
 
 }
 
+}
+.glass {
+    margin: 40px auto;
 }
 
 
