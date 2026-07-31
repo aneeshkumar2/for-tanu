@@ -1,52 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Happy Girlfriend's Day ❤️</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
 </head>
+
 
 <body>
 
+
 <div id="hearts"></div>
 
-<audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
 
 <button id="musicBtn">
-    🎵
+🎵
 </button>
+
+
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+
+<div id="progress">
+Page 1 / 9
+</div>
+
+
+
 
 <!-- PAGE 1 -->
 
 <section class="page active" id="page1">
 
-<div class="glass hero">
+<div class="glass">
 
-<h3>Happy Girlfriend's Day ❤️</h3>
+<h3>
+Happy Girlfriend's Day ❤️
+</h3>
 
-<h1>Tanu</h1>
+
+<h1>
+Tanu
+</h1>
+
 
 <p>
-I made something special just for you...
+I made something special just for you.
 </p>
+
 
 <button class="nextBtn" data-next="page2">
 Open My Gift 💌
 </button>
 
+
 </div>
 
 </section>
+
+
+
+
+
 
 <!-- PAGE 2 -->
 
@@ -54,25 +81,38 @@ Open My Gift 💌
 
 <div class="glass">
 
+
+<h2>
+💌 Love Letter
+</h2>
+
+
 <div class="envelope" id="envelope">
 
-<div class="letter">
 
-<h2>My Love ❤️</h2>
+<div class="letter">
 
 <p id="typedText"></p>
 
 </div>
 
+
 </div>
 
+
 <button class="nextBtn" data-next="page3">
-Continue 🌸
+Continue →
 </button>
+
 
 </div>
 
 </section>
+
+
+
+
+
 
 <!-- PAGE 3 -->
 
@@ -80,7 +120,11 @@ Continue 🌸
 
 <div class="glass">
 
-<h2>Why You? ❤️</h2>
+
+<h2>
+Why You? ❤️
+</h2>
+
 
 <div id="reasonCard">
 
@@ -88,37 +132,45 @@ Continue 🌸
 
 </div>
 
-<div class="reasonButtons">
+
+<div>
 
 <button id="prevReason">
-Previous
+←
 </button>
 
+
 <button id="nextReason">
-Next
+→
 </button>
 
 </div>
 
+
 <div id="dots"></div>
 
-<br>
+
 
 <button class="nextBtn" data-next="page4">
 Next ❤️
 </button>
 
+
+
 </div>
 
 </section>
-
 <!-- PAGE 4 -->
 
 <section class="page" id="page4">
 
 <div class="glass">
 
-<h2>Tap My Heart ❤️</h2>
+
+<h2>
+Tap My Heart ❤️
+</h2>
+
 
 <div id="heartContainer">
 
@@ -126,19 +178,30 @@ Next ❤️
 ❤️
 </div>
 
+
 <p id="heartMessage">
 Tap the heart...
 </p>
 
+
 </div>
 
+
+
 <button class="nextBtn hidden" id="videoBtn" data-next="page5">
-One Last Surprise 🎥
+Watch Our Video 🎥
 </button>
+
 
 </div>
 
 </section>
+
+
+
+
+
+
 
 <!-- PAGE 5 -->
 
@@ -146,93 +209,165 @@ One Last Surprise 🎥
 
 <div class="glass">
 
-<h2>Our Little Movie ❤️</h2>
 
-<video id="ourVideo" controls playsinline preload="metadata">
-    <source src="video.MP4" type="video/mp4">
-    Your browser doesn't support video.
+<h2>
+Our Little Movie 🎥
+</h2>
+
+
+<video id="ourVideo" controls playsinline>
+
+<source src="video.mp4" type="video/mp4">
+
+Your browser does not support video.
+
 </video>
 
+
+
 <p class="endingText">
-Thank you for being the best part of my life.
-<br><br>
-No matter where life takes us,
-I'll always choose you.
-<br><br>
-Happy Girlfriend's Day ❤️
+
+Every moment with you is special ❤️
+
 </p>
 
+
+
 <button class="nextBtn" data-next="page6">
+
 Open When... 💌
+
 </button>
+
+
 </div>
 
 </section>
 
-<script src="script.js"></script>
+
+
+
+
+
+
 <!-- PAGE 6 -->
 
 <section class="page" id="page6">
 
 <div class="glass">
 
-<h2>💌 Open When...</h2>
+
+<h2>
+💌 Open When...
+</h2>
+
+
 
 <div class="openContainer">
 
-<div class="openCard" data-message="No matter what happened today, remember that you are stronger than you think. I believe in you, always. ❤️">
+
+
+<div class="openCard" data-message="I hope you remember how special you are. Even on difficult days, keep smiling because your happiness matters to me. ❤️">
 
 ❤️ Open when you're sad
 
 </div>
 
-<div class="openCard" data-message="Even if we're apart right now, you're always in my heart. Distance can never change how much you mean to me. 🥺">
+
+
+
+
+<div class="openCard" data-message="Even when we are not together, you are always in my thoughts. I hope this reminds you that you are loved. 🥺">
 
 🥺 Open when you miss me
 
 </div>
 
-<div class="openCard" data-message="Close your eyes and think about one of our funniest moments together. I hope it makes you smile the way you always make me smile. 🌸">
+
+
+
+
+<div class="openCard" data-message="Think about our funniest moments and smile. Your smile is one of my favorite things. 🌸">
 
 🌸 Open when you need a smile
 
 </div>
 
+
+
+
 </div>
+
+
+
 
 <p id="openMessage"></p>
 
+
+
+
+
 <button class="nextBtn" data-next="page7">
+
 Next 🤍
+
 </button>
+
+
+
 
 </div>
 
 </section>
-
-
-
 <!-- PAGE 7 -->
 
 <section class="page" id="page7">
 
 <div class="glass">
 
-<h2>🌍 Our Bucket List</h2>
+
+<h2>
+🌍 Our Bucket List
+</h2>
+
+
 
 <div class="bucket">
 
-<label><input type="checkbox"> Watch a sunrise together 🌅</label>
 
-<label><input type="checkbox"> Go on a road trip 🚗</label>
+<label>
+<input type="checkbox">
+Watch a sunrise together 🌅
+</label>
 
-<label><input type="checkbox"> Cook something together 🍝</label>
 
-<label><input type="checkbox"> Take silly photo booth pictures 📸</label>
+<label>
+<input type="checkbox">
+Go on a road trip 🚗
+</label>
 
-<label><input type="checkbox"> Celebrate many more Girlfriend's Days ❤️</label>
+
+<label>
+<input type="checkbox">
+Cook something together 🍝
+</label>
+
+
+<label>
+<input type="checkbox">
+Take silly photos together 📸
+</label>
+
+
+<label>
+<input type="checkbox">
+Celebrate many more special days ❤️
+</label>
+
 
 </div>
+
+
 
 <p class="endingText">
 
@@ -240,15 +375,24 @@ I can't wait to check these off with you. ❤️
 
 </p>
 
+
+
 <button class="nextBtn" data-next="page8">
 
 My Promises →
 
 </button>
 
+
+
 </div>
 
 </section>
+
+
+
+
+
 
 
 
@@ -258,21 +402,46 @@ My Promises →
 
 <div class="glass">
 
-<h2>🤍 My Promises</h2>
+
+<h2>
+🤍 My Promises
+</h2>
+
+
 
 <ul class="promiseList">
 
-<li>❤️ I'll always support you.</li>
 
-<li>❤️ I'll always respect you.</li>
+<li>
+❤️ I'll always support you.
+</li>
 
-<li>❤️ I'll always listen to you.</li>
 
-<li>❤️ I'll always try to make you smile.</li>
+<li>
+❤️ I'll always respect you.
+</li>
 
-<li>❤️ I'll always choose you.</li>
+
+<li>
+❤️ I'll always listen to you.
+</li>
+
+
+<li>
+❤️ I'll always try to make you smile.
+</li>
+
+
+<li>
+❤️ I'll always choose you.
+</li>
+
+
 
 </ul>
+
+
+
 
 <button class="nextBtn" data-next="page9">
 
@@ -280,9 +449,18 @@ Final Surprise 🌙
 
 </button>
 
+
+
+
 </div>
 
 </section>
+
+
+
+
+
+
 
 
 
@@ -292,9 +470,18 @@ Final Surprise 🌙
 
 <div class="glass final">
 
-<h1>❤️</h1>
 
-<h2>Happy Girlfriend's Day</h2>
+<h1>
+❤️
+</h1>
+
+
+
+<h2>
+Happy Girlfriend's Day
+</h2>
+
+
 
 <p>
 
@@ -310,7 +497,11 @@ Every single time.
 
 Thank you for being the best part of my life.
 
+❤️
+
 </p>
+
+
 
 <button id="restartBtn">
 
@@ -318,8 +509,20 @@ Replay Our Story ↺
 
 </button>
 
+
+
 </div>
 
 </section>
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
 </body>
+
 </html>
