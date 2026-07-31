@@ -1,106 +1,211 @@
-// PAGE SWITCHING
+// ============================
+// PAGE NAVIGATION
+// ============================
+
 
 const pages = document.querySelectorAll(".page");
+
 const nextButtons = document.querySelectorAll(".nextBtn");
 
-nextButtons.forEach(button => {
 
-    button.addEventListener("click", () => {
+function showPage(pageID){
+
+    pages.forEach(page=>{
+
+        page.classList.remove("active");
+
+    });
+
+
+    const target = document.getElementById(pageID);
+
+
+    if(target){
+
+        target.classList.add("active");
+
+    }
+
+
+    updateProgress();
+
+}
+
+
+
+nextButtons.forEach(button=>{
+
+
+    button.addEventListener("click",()=>{
+
 
         const nextPage = button.dataset.next;
 
-        pages.forEach(page => {
-            page.classList.remove("active");
-        });
 
-        document.getElementById(nextPage).classList.add("active");
+        if(nextPage){
 
-        window.scrollTo(0,0);
+            showPage(nextPage);
+
+        }
+
 
     });
+
 
 });
 
 
 
-// BACKGROUND MUSIC
+
+// ============================
+// PROGRESS
+// ============================
+
+
+const progress = document.getElementById("progress");
+
+
+function updateProgress(){
+
+
+    const current = document.querySelector(".page.active");
+
+
+    if(current){
+
+        const number = current.id.replace("page","");
+
+
+        progress.innerHTML =
+        `❤️ Page ${number} / 9`;
+
+    }
+
+
+}
+
+
+
+updateProgress();
+
+
+
+
+// ============================
+// MUSIC
+// ============================
+
 
 const music = document.getElementById("bgMusic");
+
 const musicBtn = document.getElementById("musicBtn");
 
-let musicPlaying = false;
+
+let playing = false;
 
 
 musicBtn.addEventListener("click",()=>{
 
-    if(musicPlaying){
+
+    if(playing){
+
 
         music.pause();
 
         musicBtn.innerHTML="🎵";
 
-    }
 
+    }
     else{
+
 
         music.play();
 
         musicBtn.innerHTML="🔊";
 
+
     }
 
-    musicPlaying=!musicPlaying;
+
+    playing = !playing;
+
 
 });
 
 
 
 
+// ============================
 // FLOATING HEARTS
+// ============================
 
-const heartsBox = document.getElementById("hearts");
+
+const hearts = document.getElementById("hearts");
 
 
 function createHeart(){
 
-    const heart=document.createElement("div");
+
+    const heart = document.createElement("div");
+
 
     heart.className="heartFloat";
 
+
     heart.innerHTML="❤️";
 
-    heart.style.left=Math.random()*100+"%";
 
-    heart.style.fontSize=(15+Math.random()*25)+"px";
-
-    heart.style.animationDuration=(4+Math.random()*5)+"s";
+    heart.style.left =
+    Math.random()*100+"%";
 
 
-    heartsBox.appendChild(heart);
+    heart.style.animationDuration =
+    (4 + Math.random()*5)+"s";
+
+
+    hearts.appendChild(heart);
+
 
 
     setTimeout(()=>{
 
+
         heart.remove();
 
+
     },8000);
+
+
 
 }
 
 
-setInterval(createHeart,500);
+setInterval(createHeart,700);
 
 
 
 
-// ENVELOPE OPENING
 
-const envelope=document.getElementById("envelope");
+// ============================
+// LOVE LETTER
+// ============================
 
-const letterText = 
-"Every moment with you is special. ❤️ You make my days brighter and my life happier. Thank you for being you. I am lucky to have you.";
 
-let typedStarted=false;
+const envelope =
+document.getElementById("envelope");
+
+
+const typedText =
+document.getElementById("typedText");
+
+
+let letterStarted=false;
+
+
+const letter =
+
+"Thank you for being a beautiful part of my life. You make my days happier and my world brighter. ❤️";
+
 
 
 envelope.addEventListener("click",()=>{
@@ -109,66 +214,76 @@ envelope.addEventListener("click",()=>{
     envelope.classList.add("open");
 
 
-    if(!typedStarted){
+    if(!letterStarted){
 
-        typeWriter();
+        typeLetter();
 
-        typedStarted=true;
+        letterStarted=true;
 
     }
+
 
 });
 
 
 
-function typeWriter(){
+function typeLetter(){
 
-    const text=document.getElementById("typedText");
 
     let i=0;
 
 
-    function typing(){
+    function write(){
 
-        if(i<letterText.length){
 
-            text.innerHTML += letterText.charAt(i);
+        if(i < letter.length){
+
+
+            typedText.innerHTML += letter[i];
+
 
             i++;
 
-            setTimeout(typing,40);
+
+            setTimeout(write,40);
+
 
         }
+
 
     }
 
 
-    typing();
+    write();
+
 
 }
-// WHY YOU SECTION
+// ============================
+// WHY YOU
+// ============================
+
 
 const reasons = [
 
-"Because your smile can make my worst days better ❤️",
+"Your smile makes my day better ❤️",
 
-"Because you understand me like nobody else 🌸",
+"You understand me like no one else 🌸",
 
-"Because every moment with you feels special ✨",
+"You make normal moments special ✨",
 
-"Because you make me laugh even when I don't feel like smiling 💕",
+"You always make me laugh 💕",
 
-"Because you are my favorite person to talk to 💌",
+"I love talking to you ❤️",
 
-"Because your happiness matters to me ❤️",
+"Your happiness matters to me 🌷",
 
-"Because you make ordinary moments beautiful 🌷",
+"You make life more beautiful 🤍",
 
-"Because I love the way you care about me 🤍",
+"I can always be myself with you 🫶",
 
-"Because I can be myself around you 🫶",
+"You are someone I truly appreciate 💖",
 
-"Because I choose you, again and again ❤️"
+"I would choose you again and again ❤️"
 
 ];
 
@@ -176,22 +291,31 @@ const reasons = [
 let reasonIndex = 0;
 
 
-const reasonText=document.getElementById("reasonText");
+const reasonText =
+document.getElementById("reasonText");
 
-const dots=document.getElementById("dots");
+
+const dots =
+document.getElementById("dots");
+
 
 
 function showReason(){
 
-    reasonText.innerHTML=reasons[reasonIndex];
+
+    reasonText.innerHTML =
+    reasons[reasonIndex];
 
 
     dots.innerHTML="";
 
 
-    reasons.forEach((_,index)=>{
+    reasons.forEach((item,index)=>{
 
-        const dot=document.createElement("span");
+
+        const dot =
+        document.createElement("span");
+
 
         dot.className="dot";
 
@@ -205,7 +329,9 @@ function showReason(){
 
         dots.appendChild(dot);
 
+
     });
+
 
 }
 
@@ -214,7 +340,9 @@ showReason();
 
 
 
-document.getElementById("nextReason").addEventListener("click",()=>{
+document.getElementById("nextReason")
+.addEventListener("click",()=>{
+
 
     reasonIndex++;
 
@@ -228,11 +356,13 @@ document.getElementById("nextReason").addEventListener("click",()=>{
 
     showReason();
 
+
 });
 
 
 
-document.getElementById("prevReason").addEventListener("click",()=>{
+document.getElementById("prevReason")
+.addEventListener("click",()=>{
 
 
     reasonIndex--;
@@ -251,145 +381,23 @@ document.getElementById("prevReason").addEventListener("click",()=>{
 });
 
 
-/* ===================================
-   
 
 
-/* ===================================
-   PROGRESS INDICATOR
-=================================== */
-
-const progress = document.createElement("div");
-progress.className = "progress";
-document.body.appendChild(progress);
-
-function updateProgress(){
-
-    const activePage = document.querySelector(".page.active");
-
-    if(!activePage) return;
-
-    const pageNumber = activePage.id.replace("page","");
-
-    progress.innerHTML = `❤️ Page ${pageNumber} / 9`;
-
-}
-
-updateProgress();
+// ============================
+// HEART CLICK
+// ============================
 
 
-/* Update progress whenever a Next button is clicked */
-
-document.querySelectorAll(".nextBtn").forEach(btn=>{
-
-    btn.addEventListener("click",()=>{
-
-        setTimeout(updateProgress,100);
-
-    });
-
-});
+const heart =
+document.getElementById("heart");
 
 
-/* ===================================
-   REPLAY BUTTON
-=================================== */
-
-const replayBtn = document.getElementById("restartBtn");
-
-if(replayBtn){
-
-    replayBtn.addEventListener("click",()=>{
-
-        document.querySelectorAll(".page").forEach(page=>{
-
-            page.classList.remove("active");
-
-        });
-
-        document.getElementById("page1").classList.add("active");
-
-        heartClicks = 0;
-
-        heart.style.transform = "scale(1)";
-
-        heartMessage.innerHTML = "Tap the heart...";
-
-        if(videoBtn){
-            videoBtn.classList.add("hidden");
-        }
-
-        if(openMessage){
-            openMessage.style.display = "none";
-            openMessage.innerHTML = "";
-        }
-
-        reasonIndex = 0;
-        showReason();
-
-        updateProgress();
-
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-
-    });
-
-}
+const heartMessage =
+document.getElementById("heartMessage");
 
 
-/* ===================================
-   FINAL SURPRISE EFFECT
-=================================== */
-
-const finalPage = document.getElementById("page9");
-
-if(finalPage){
-
-    const observer = new MutationObserver(()=>{
-
-        if(finalPage.classList.contains("active")){
-
-            createConfetti();
-
-            createFireworks();
-
-        }
-
-    });
-
-    observer.observe(finalPage,{
-        attributes:true,
-        attributeFilter:["class"]
-    });
-
-}
-
-
-// HEART CLICK GAME
-
-
-const heart=document.getElementById("heart");
-
-const heartMessage=document.getElementById("heartMessage");
-
-const videoBtn=document.getElementById("videoBtn");
-
-
-const heartMessages=[
-
-"You're my favorite person ❤️",
-
-"You make my world brighter ✨",
-
-"I miss your smile 🥹",
-
-"I'm grateful for you 🌸",
-
-"I love you forever ❤️"
-
-];
+const videoBtn =
+document.getElementById("videoBtn");
 
 
 let heartClicks=0;
@@ -399,38 +407,31 @@ let heartClicks=0;
 heart.addEventListener("click",()=>{
 
 
-    createHeartExplosion();
-
-
     heartClicks++;
 
 
-    if(heartClicks<=heartMessages.length){
-
-        heartMessage.innerHTML=
-        heartMessages[heartClicks-1];
-
-    }
-
-
-
-    heart.style.transform=
+    heart.style.transform =
     `scale(${1 + heartClicks*0.05})`;
 
 
 
-    if(heartClicks===heartMessages.length){
-
-        heartMessage.innerHTML=
-        "I Love You Forever ❤️";
+    heartMessage.innerHTML =
+    `❤️ ${heartClicks}/5`;
 
 
-        createConfetti();
 
-        createFireworks();
+    if(heartClicks>=5){
+
+
+        heartMessage.innerHTML =
+        "I Love You ❤️";
 
 
         videoBtn.classList.remove("hidden");
+
+
+        confetti();
+
 
     }
 
@@ -440,168 +441,52 @@ heart.addEventListener("click",()=>{
 
 
 
-// HEART EXPLOSION
+// ============================
+// OPEN WHEN
+// ============================
 
 
-function createHeartExplosion(){
+const cards =
+document.querySelectorAll(".openCard");
 
 
-    for(let i=0;i<8;i++){
+const openMessage =
+document.getElementById("openMessage");
 
 
-        const h=document.createElement("div");
 
+cards.forEach(card=>{
 
-        h.className="miniHeart";
 
-        h.innerHTML="❤️";
+    card.addEventListener("click",()=>{
 
 
-        h.style.left=
-        (window.innerWidth/2)+"px";
+        openMessage.style.display="block";
 
 
-        h.style.top=
-        (window.innerHeight/2)+"px";
+        openMessage.innerHTML =
+        card.dataset.message;
 
-
-
-        h.style.setProperty("--x",
-        (Math.random()*200-100)+"px");
-
-
-        h.style.setProperty("--y",
-        (Math.random()*200-100)+"px");
-
-
-
-        document.body.appendChild(h);
-
-
-
-        setTimeout(()=>{
-
-            h.remove();
-
-        },1000);
-
-
-    }
-
-
-}
-// CONFETTI EFFECT
-
-function createConfetti(){
-
-    const emojis = ["❤️","💖","✨","🌸","💕"];
-
-    for(let i=0;i<50;i++){
-
-        const confetti=document.createElement("div");
-
-        confetti.className="confetti";
-
-        confetti.innerHTML=
-        emojis[Math.floor(Math.random()*emojis.length)];
-
-
-        confetti.style.left=
-        Math.random()*100+"vw";
-
-
-        confetti.style.animationDuration=
-        (2+Math.random()*3)+"s";
-
-
-        document.body.appendChild(confetti);
-
-
-
-        setTimeout(()=>{
-
-            confetti.remove();
-
-        },5000);
-
-    }
-
-}
-
-
-
-
-// FIREWORK EFFECT
-
-function createFireworks(){
-
-
-    for(let i=0;i<8;i++){
-
-
-        setTimeout(()=>{
-
-
-            const fire=document.createElement("div");
-
-
-            fire.className="firework";
-
-
-            fire.innerHTML="🎆";
-
-
-            fire.style.left=
-            Math.random()*80+10+"vw";
-
-
-            fire.style.top=
-            Math.random()*60+10+"vh";
-
-
-            document.body.appendChild(fire);
-
-
-
-            setTimeout(()=>{
-
-                fire.remove();
-
-            },1000);
-
-
-
-        },i*300);
-
-
-    }
-
-
-}
-
-
-
-
-
-// RESTART WEBSITE
-
-
-const restartBtn=document.getElementById("restartBtn");
-
-
-restartBtn.addEventListener("click",()=>{
-
-
-    pages.forEach(page=>{
-
-        page.classList.remove("active");
 
     });
 
 
-    document.getElementById("page1")
-    .classList.add("active");
+});
 
+
+
+
+
+// ============================
+// REPLAY
+// ============================
+
+
+document.getElementById("restartBtn")
+.addEventListener("click",()=>{
+
+
+    showPage("page1");
 
 
     heartClicks=0;
@@ -610,18 +495,14 @@ restartBtn.addEventListener("click",()=>{
     heart.style.transform="scale(1)";
 
 
-    heartMessage.innerHTML=
+    heartMessage.innerHTML =
     "Tap the heart...";
-
 
 
     videoBtn.classList.add("hidden");
 
 
-
-    reasonIndex=0;
-
-    showReason();
+    openMessage.style.display="none";
 
 
 });
@@ -630,37 +511,50 @@ restartBtn.addEventListener("click",()=>{
 
 
 
-// SMALL SPARKLE EFFECT
-
-setInterval(()=>{
-
-
-    const sparkle=document.createElement("div");
+// ============================
+// CONFETTI
+// ============================
 
 
-    sparkle.className="sparkle";
+function confetti(){
 
 
-    sparkle.innerHTML="✨";
+    for(let i=0;i<40;i++){
 
 
-    sparkle.style.left=
-    Math.random()*100+"vw";
+        const item =
+        document.createElement("div");
 
 
-    sparkle.style.top=
-    Math.random()*100+"vh";
+        item.innerHTML="❤️";
 
 
-    document.body.appendChild(sparkle);
+        item.style.position="fixed";
+
+        item.style.left =
+        Math.random()*100+"vw";
+
+        item.style.top="-20px";
+
+        item.style.fontSize="20px";
+
+
+        item.style.animation =
+        "fall 3s linear";
+
+
+        document.body.appendChild(item);
 
 
 
-    setTimeout(()=>{
+        setTimeout(()=>{
 
-        sparkle.remove();
+            item.remove();
 
-    },1000);
+        },3000);
 
 
-},700);
+    }
+
+
+}
