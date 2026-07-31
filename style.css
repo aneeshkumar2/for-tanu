@@ -347,7 +347,277 @@ button:hover {
 
 }
 
+/* ===========================
+   PAGE 6 - OPEN WHEN
+=========================== */
 
+.openContainer{
+display:flex;
+flex-direction:column;
+gap:15px;
+margin-top:20px;
+}
+
+.openCard{
+background:rgba(255,255,255,.55);
+padding:18px;
+border-radius:18px;
+cursor:pointer;
+transition:.3s;
+font-weight:600;
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.openCard:hover{
+transform:translateY(-4px) scale(1.02);
+background:#fff;
+}
+
+#openMessage{
+margin-top:20px;
+padding:18px;
+border-radius:15px;
+background:rgba(255,255,255,.45);
+min-height:90px;
+display:none;
+animation:fadeMessage .4s ease;
+}
+
+@keyframes fadeMessage{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+
+/* ===========================
+   PAGE 7 - BUCKET LIST
+=========================== */
+
+.bucket{
+
+display:flex;
+flex-direction:column;
+gap:15px;
+margin-top:20px;
+text-align:left;
+
+}
+
+.bucket label{
+
+padding:15px;
+border-radius:15px;
+background:rgba(255,255,255,.45);
+cursor:pointer;
+transition:.3s;
+
+}
+
+.bucket label:hover{
+
+transform:translateX(8px);
+
+}
+
+.bucket input{
+
+margin-right:10px;
+transform:scale(1.2);
+
+}
+
+.bucket input:checked+span{
+
+text-decoration:line-through;
+
+}
+
+
+/* ===========================
+   PAGE 8 - PROMISES
+=========================== */
+
+.promiseList{
+
+list-style:none;
+margin-top:25px;
+
+}
+
+.promiseList li{
+
+background:rgba(255,255,255,.5);
+padding:16px;
+margin:12px 0;
+border-radius:18px;
+opacity:0;
+transform:translateY(20px);
+animation:promiseFade .8s forwards;
+
+}
+
+.promiseList li:nth-child(1){
+
+animation-delay:.2s;
+
+}
+
+.promiseList li:nth-child(2){
+
+animation-delay:.6s;
+
+}
+
+.promiseList li:nth-child(3){
+
+animation-delay:1s;
+
+}
+
+.promiseList li:nth-child(4){
+
+animation-delay:1.4s;
+
+}
+
+.promiseList li:nth-child(5){
+
+animation-delay:1.8s;
+
+}
+
+@keyframes promiseFade{
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+/* ===========================
+   PAGE 9 - FINAL SURPRISE
+=========================== */
+
+.final{
+
+position:relative;
+overflow:hidden;
+
+}
+
+.final h1{
+
+font-size:90px;
+animation:heartbeat 1.4s infinite;
+
+}
+
+.final h2{
+
+margin-bottom:20px;
+
+}
+
+.final::before{
+
+content:"✨ ✨ ✨";
+
+position:absolute;
+
+top:15px;
+left:50%;
+transform:translateX(-50%);
+font-size:24px;
+opacity:.8;
+
+}
+
+.final p{
+
+font-size:17px;
+line-height:1.8;
+margin:20px 0;
+
+}
+
+
+/* ===========================
+   PROGRESS TEXT
+=========================== */
+
+.progress{
+
+position:fixed;
+top:18px;
+left:20px;
+background:rgba(255,255,255,.45);
+padding:8px 14px;
+border-radius:30px;
+backdrop-filter:blur(8px);
+font-size:14px;
+z-index:999;
+
+}
+
+
+/* ===========================
+   SMOOTH BUTTON
+=========================== */
+
+.nextBtn{
+
+transition:.35s;
+
+}
+
+.nextBtn:hover{
+
+transform:translateY(-3px) scale(1.05);
+
+}
+
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:600px){
+
+.openCard{
+
+font-size:15px;
+
+}
+
+.promiseList li{
+
+font-size:15px;
+
+}
+
+.bucket label{
+
+font-size:15px;
+
+}
+
+.final h1{
+
+font-size:70px;
+
+}
+
+}
 .dot {
 
     display:inline-block;
